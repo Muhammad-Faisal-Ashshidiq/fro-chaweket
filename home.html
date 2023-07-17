@@ -31,10 +31,10 @@
         <div class="form">
             <form onsubmit="app.doSendMessage(); return false;">
                 <div class="placeholder">
-                    <label>Welcome <b class="username"></b>. Say something:</label>
+                    <label>Welcome <b class="username"></b>. silakan ketik apapun di sini:</label>
                 </div>
                 <input class="flex-1 mr-2 p-2 border border-white-400 text-black rounded" type="text"  placeholder="Enter message">
-                <button type="submit" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-orange-500" >Send</button>
+                <button type="submit" class="py-2 px-4 bg-blue-500 text-black rounded hover:bg-orange-500" >kirim</button>
             </form>
         </div>
 </div>
@@ -73,7 +73,7 @@
 
     app.container = document.querySelector('.container')
 
-    app.ws = new WebSocket("ws://sal-websocket-02e789176250.herokuapp.com///ws?username=" + name)
+    app.ws = new WebSocket("wss://sal-websocket-02e789176250.herokuapp.com///ws?username=" + name)
 
     app.ws.onopen = function() {
         var message = '<b>me</b>: connected'
