@@ -25,8 +25,8 @@
      <div class="row-cols-3">
         <div id="messages" class="border p-2 mb-2"></div>
     </div>
-    <input type="text" id="message" placeholder="Message" class="flex-1 mr-2 p-2 border border-white-400 text-grey rounded" />
-        <button id="send" type="submit" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-orange-500">Send</button>
+    <input type="text" id="pesan" placeholder="Pesan" class="flex-1 mr-2 p-2 border border-white-400 text-grey rounded" />
+        <button id="kirim" type="submit" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-orange-500">Send</button>
    
         <!-- <div class="form">
             <form onsubmit="app.doSendMessage(); return false;">
@@ -40,21 +40,21 @@
 </div>
 <script type="text/javascript">
      $(function() {
-            var socket = new WebSocket("wss://cha-weket.herokuapp.com//ws?username=" + encodeURIComponent($('#username').val()));
+            var socket = new WebSocket("wss://sal-websocket-02e789176250.herokuapp.com///ws?username=" + encodeURIComponent($('#username').val()));
 
             socket.onmessage = function(event) {
-                var message = JSON.parse(event.data);
-                var content = "<strong>" + message.username + ":</strong> " + message.content + "<br />";
+                var pesan = JSON.parse(event.data);
+                var content = "<strong>" + pesan.username + ":</strong> " + pesan.content + "<br />";
                 $('#messages').append(content);
             };
 
-            $('#send').click(function() {
-                var message = {
+            $('#kirim').click(function() {
+                var pesan = {
                     username: $('#username').val(),
-                    content: $('#message').val()
+                    content: $('#pesan').val()
                 };
                 socket.send(JSON.stringify(message));
-                $('#message').val('');
+                $('#pesan').val('');
             });
         });
 
