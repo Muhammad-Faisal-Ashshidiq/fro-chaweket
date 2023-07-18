@@ -1,0 +1,67 @@
+.container{
+    width:450px;
+    height:89vh;
+    display:flex;
+    flex-direction: column;
+    box-shadow:2px 2px 20px rgba(0,0,0,0.4);
+    background-color:darkblue;
+}
+
+.chat-header{
+    color:white;
+    padding: 15px;
+    font-size: 30px;
+}
+
+.chat-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 100px); /* untuk mengatur tinggi class chat-card */
+    max-height: 600px; /* pembatas tinggi body chatnya */
+    overflow-y: auto; /* berfungsi untuk scroll apabila chatnya melebihi dari batasnya */
+    padding: 20px;
+}
+.user{
+    background-color: white;
+    padding:10px;
+    color:black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.input-group {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.input-group input[type="text"] {
+    flex: 0.5;
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-image: url('./asset/langit.jpg')
+}
+
+.input-group button {
+    
+    background-color: green;
+    color: #fff;
+    border: none;
+    outline: none;
+    hover:bg-green-500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}

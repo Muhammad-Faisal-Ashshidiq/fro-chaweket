@@ -4,72 +4,34 @@
     <title>ChaWeKet - Chat Websocket</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://i2.wp.com/blog.tripcetera.com/id/wp-content/uploads/2020/10/Danau-Toba-edited.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-        }
-
-        .chat-card {
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: calc(100vh - 100px); /* Mengatur tinggi kartu chat */
-            max-height: 600px; /* Batas maksimal tinggi kartu chat */
-            overflow-y: auto; /* Menambahkan scrollbar jika kontennya melebihi tinggi kartu */
-            padding: 20px;
-        }
-
-        .input-group {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 500px;
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-        }
-
-        .input-group input[type="text"] {
-            flex: 1;
-            border: none;
-            outline: none;
-            padding: 10px;
-        }
-
-        .input-group button {
-            background-color: #3B82F6;
-            color: #fff;
-            border: none;
-            outline: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/894d95a0a5.js" crossorigin="anonymous"></script>
+    <link href="./asset/css/style.css" rel="stylesheet">
+ <style>
+ body {
+    font-family: 'Times New Roman', Times, serif;
+    flex: 1;
+    padding: 20px 30px;
+    background-image: url('./asset/orange.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+</style>
 </head>
 <body>
     <div class="container mx-auto py-8">
-        <h1 class="text-3xl font-bold mb-4">ChaWeKet - Chat Websocket</h1>
+        <h1 class="chat-header">ChaWeKet - Chat Websocket</h1>
         <div class="chat-card">
-            <div id="messages"></div>
+            <div class="user" id="messages"></div>
         </div>
         <div class="input-group">
             <input type="text" id="username" class="flex-1 mr-2 p-2 border border-gray-300 rounded" placeholder="Username">
             <input type="text" id="message" class="flex-1 mr-2 p-2 border border-gray-300 rounded" placeholder="Message">
-            <button id="send">Send</button>
+            <button type="solid" id="send"><i class="fa-solid fa-paper-plane-top">></i></button>
+            
         </div>
     </div>
-
     <script>
         $(function() {
             var socket = new WebSocket("wss://websoket-haris.herokuapp.com/ws?username=" + encodeURIComponent($('#username').val()));
